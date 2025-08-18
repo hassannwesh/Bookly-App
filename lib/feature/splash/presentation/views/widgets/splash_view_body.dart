@@ -19,18 +19,23 @@ class _SplashViewBodyState extends State<SplashViewBody>
     super.initState();
     animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
     slidingAnimation = Tween<Offset>(
-      begin: const Offset(0, 10),
+      begin: const Offset(0, 2), // بدل 10 عشان الحركة تبان أوضح
       end: Offset.zero,
     ).animate(animationController);
+
+    // تشغيل الأنميشن
+    animationController.forward();
   }
-@override
-  void dispose(){
-    super.dispose();
+
+  @override
+  void dispose() {
     animationController.dispose();
+    super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,8 +44,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       children: [
         Image.asset(AssetsData.logo),
         const SizedBox(height: 4),
-        SlidingText(slidingAnimation: slidingAnimation,)
-
+        SlidingText(slidingAnimation: slidingAnimation),
       ],
     );
   }
