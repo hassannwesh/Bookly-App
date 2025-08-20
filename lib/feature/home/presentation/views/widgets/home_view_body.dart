@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
+import 'best_seller_list_view_item.dart';
 import 'custom_appbar.dart';
 import 'feature_list_view_item.dart';
 
@@ -19,15 +20,12 @@ class HomeViewBody extends StatelessWidget {
         children: [
           CustomAppBre(),
           FeatureBookListView(),
-          SizedBox(height: 50,),
-          Text('Bast Seller',style: Styles.titleMedium,
-          ),
-
+          SizedBox(height: 50),
+          Text('Bast Seller', style: Styles.titleMedium),
+          SizedBox(height: 20,),
+          BestSellerListViewItem(),
         ],
       ),
     );
   }
 }
-
-
-
