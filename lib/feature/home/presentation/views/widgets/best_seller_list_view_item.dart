@@ -1,3 +1,4 @@
+import 'package:bookly_app/constent.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -27,13 +28,29 @@ class BestSellerListViewItem extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 30),
-          SizedBox(
-            width: 200,
-            child: Text('Hary Potter and the Gold of Fine',
-                style: Styles.testStyle20,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 200,
+                child: Text(
+                  'Hary Potter and the Gold of Fine',
+                  style: Styles.testStyle20.copyWith(fontFamily: kGtSectraFine),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(height: 3),
+              Text(
+                'J.K.Rowling',
+                style: Styles.testStyle16,
+              ),
+              const SizedBox(height: 3),
+              Text(
+                '19.99 &',
+                style: Styles.testStyle20.copyWith(fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
         ],
       ),
