@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 import 'best_seller_list_view_item.dart';
 import 'custom_appbar.dart';
+import 'feature_list_view_best_seller.dart';
 import 'feature_list_view_item.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -13,19 +14,31 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomAppBre(),
-          FeatureBookListView(),
-          SizedBox(height: 50),
-          Text('Bast Seller', style: Styles.testStyle18),
-          SizedBox(height: 20),
-          BestSellerListViewItem(),
-        ],
-      ),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomAppBre(),
+              FeatureBookListView(),
+              SizedBox(height: 50),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Text('Bast Seller', style: Styles.testStyle18),
+              ),
+              SizedBox(height: 20),
+            ],
+          ),
+        ),
+        //دا بيدي الويدجيت الليجوه باقي المساحه اللي فاضله فس الشاشه في حاله لو هي اخر حاجه تمام بدل ما تعمل في اليست فيو ال shrinkWrap عشان البيرفورمانس باتع الليست فيو ي عاملي
+        SliverFillRemaining(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: FeatureListViewBestSeller(),
+          ),
+        ),
+      ],
     );
   }
 }
