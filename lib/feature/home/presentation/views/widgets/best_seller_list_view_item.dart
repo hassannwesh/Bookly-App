@@ -1,5 +1,6 @@
 import 'package:bookly_app/constent.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/feature/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../../../core/utils/assets.dart';
@@ -28,32 +29,47 @@ class BestSellerListViewItem extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 30),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: 200,
-                child: Text(
-                  'Hary Potter and the Gold of Fine',
-                  style: Styles.testStyle20.copyWith(fontFamily: kGtSectraFine),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: 200,
+                  child: Text(
+                    'Hary Potter and the Gold of Fine',
+                    style: Styles.testStyle20.copyWith(fontFamily: kGtSectraFine),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 3),
-              Text(
-                'J.K.Rowling',
-                style: Styles.testStyle16,
-              ),
-              const SizedBox(height: 3),
-              Text(
-                '19.99 &',
-                style: Styles.testStyle20.copyWith(fontWeight: FontWeight.bold),
-              ),
-            ],
+                const SizedBox(height: 3),
+                Text(
+                  'J.K.Rowling',
+                  style: Styles.testStyle16
+                ),
+                const SizedBox(height: 3),
+                Expanded(
+                  child: Row(
+                    children: [
+                      Text(
+                        '19.99 &',
+                        style: Styles.testStyle20.copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      Spacer(),
+                      BookRating()
+
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
     );
+
   }
+
 }
+
+
