@@ -14,7 +14,6 @@ class BookDetailsViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
-crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CustomBookDetailsAppbar(),
           Padding(
@@ -30,8 +29,8 @@ crossAxisAlignment: CrossAxisAlignment.center,
               fontStyle: FontStyle.italic
             )),
           ),
-          const SizedBox(height: 30,),
-
+          const SizedBox(height: 18,),
+          BookRating(mainAxisAlignment:MainAxisAlignment.center ,),
         ],
       ),
     );
