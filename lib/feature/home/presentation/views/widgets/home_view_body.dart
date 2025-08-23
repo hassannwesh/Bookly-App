@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 import 'best_seller_list_view_item.dart';
-import 'custom_appbar.dart';
+import 'custom_home_view_appbar.dart';
 import 'feature_list_view_best_seller.dart';
-import 'feature_list_view_item.dart';
+import 'custom_image_book.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -20,7 +20,10 @@ class HomeViewBody extends StatelessWidget {
           child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppBre(),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: CustomHomeViewAppBre(),
+              ),
               FeatureBookListView(),
               SizedBox(height: 50),
               Padding(
