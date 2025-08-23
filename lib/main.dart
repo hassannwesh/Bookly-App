@@ -1,5 +1,4 @@
 import 'package:bookly_app/core/utils/app_router.dart';
-import 'package:bookly_app/feature/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,7 +7,6 @@ import 'constant.dart';
 void main() {
   runApp(const BookApp());
 }
-
 class BookApp extends StatelessWidget {
   const BookApp({super.key});
 
