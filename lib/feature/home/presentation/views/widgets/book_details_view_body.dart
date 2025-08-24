@@ -3,7 +3,7 @@ import 'package:bookly_app/feature/home/presentation/views/widgets/book_rating.d
 import 'package:bookly_app/feature/home/presentation/views/widgets/custom_book_details_appBar.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'action_bottom.dart';
+import 'book_action.dart';
 import 'custom_image_book.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
