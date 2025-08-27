@@ -29,13 +29,15 @@ class CustomBottom extends StatelessWidget {
             borderRadius: borderRadius ?? BorderRadius.circular(16),
           ),
         ),
-        child: Text(text,
+        child: Text(
+          text,
 
-        style:Styles.testStyle18.copyWith(
-          fontSize: fontSize,
-          fontWeight: FontWeight.w900,
-          color: textColor,
-        )),
+          style: Styles.testStyle18.copyWith(
+            fontSize: fontSize,
+            fontWeight: FontWeight.w900,
+            color: textColor,
+          ),
+        ),
       ),
     );
   }

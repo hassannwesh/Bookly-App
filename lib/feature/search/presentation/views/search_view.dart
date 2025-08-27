@@ -1,12 +1,11 @@
 import 'package:bookly_app/feature/search/presentation/views/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
+
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-      body: SearchViewBody(),
-    ));
+    return SafeArea(child: Scaffold(body: SearchViewBody()));
   }
 }

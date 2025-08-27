@@ -13,7 +13,7 @@ class CustomHomeViewAppBre extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 2),
       child: Row(
         children: [
-          Image.asset(AssetsData.logo, height: 25,),
+          Image.asset(AssetsData.logo, height: 25),
           Spacer(),
           IconButton(
             onPressed: () {

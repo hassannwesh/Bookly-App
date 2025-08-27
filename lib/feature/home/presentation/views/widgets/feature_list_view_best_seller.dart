@@ -10,7 +10,7 @@ class FeatureListViewBestSeller extends StatelessWidget {
       child: ListView.builder(
         padding: EdgeInsets.zero,
         itemCount: 10,
-        physics:NeverScrollableScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),

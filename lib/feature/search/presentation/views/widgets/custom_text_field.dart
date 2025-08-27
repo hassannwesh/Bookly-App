@@ -11,17 +11,21 @@ class CustomTextField extends StatelessWidget {
         enabledBorder: buildOutlineInputBorder(),
         focusedBorder: buildOutlineInputBorder(),
         hintText: 'Search',
-        suffixIcon: IconButton(onPressed:(){},
-            icon: Opacity(
-              opacity: .7,
-                child: Icon(FontAwesomeIcons.magnifyingGlass, size: 24)),)
+        suffixIcon: IconButton(
+          onPressed: () {},
+          icon: Opacity(
+            opacity: .7,
+            child: Icon(FontAwesomeIcons.magnifyingGlass, size: 24),
+          ),
+        ),
       ),
     );
   }
-  OutlineInputBorder buildOutlineInputBorder(){
+
+  OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderSide: const BorderSide(color: Colors.white),
-      borderRadius: BorderRadius.circular(16)
+      borderRadius: BorderRadius.circular(16),
     );
   }
 }

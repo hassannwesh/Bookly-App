@@ -7,6 +7,7 @@ import 'constant.dart';
 void main() {
   runApp(const BookApp());
 }
+
 class BookApp extends StatelessWidget {
   const BookApp({super.key});
 
@@ -19,7 +20,6 @@ class BookApp extends StatelessWidget {
         scaffoldBackgroundColor: kPrimaryColor,
         textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
       ),
-
     );
   }
 }
