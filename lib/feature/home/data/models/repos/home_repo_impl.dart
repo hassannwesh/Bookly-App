@@ -1,0 +1,32 @@
+import 'package:bookly_app/core/errors/failures.dart';
+import 'package:bookly_app/core/utils/api_service.dart';
+import 'package:bookly_app/feature/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/feature/home/data/models/repos/home_repo.dart';
+import 'package:dartz/dartz.dart';
+
+class HomeRepoImpl extends HomeRepo {
+  ApiService apiService;
+  HomeRepoImpl(this.apiService);
+
+  @override
+  Future<Either<Failures, List<BookModel>>> fetchFlutterNewsetBooks() async {
+    try {
+      var data = await apiService.get(
+        endPoint: 
+        '/volumes?Filtering=free-ebooks&q=subject:sports',);
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return Right(books);
+    } catch (e) {
+      return Left(ServerFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks() {
+    // TODO: implement fetchFeaturedBooks
+    throw UnimplementedError();
+  }
+}

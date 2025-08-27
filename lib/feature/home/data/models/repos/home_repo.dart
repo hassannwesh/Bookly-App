@@ -4,6 +4,6 @@ import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
   // either is used to handel errors form adrtz package
-Future<Either<Failures,List<BookModel>>> fetchFeaturedBooks();
-Future<Either<Failures,List<BookModel>>> fetchBestSellerBooks();
+  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks();
+  Future<Either<Failures, List<BookModel>>> fetchFlutterNewsetBooks();
 }
