@@ -2,8 +2,8 @@ import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/feature/home/presentation/views/widgets/feature_book_list_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/utils/styles.dart';
+import 'best_seller_list_view_item.dart';
 import 'custom_home_view_appbar.dart';
 import 'feature_list_view_best_seller.dart';
 import 'custom_image_book.dart';
