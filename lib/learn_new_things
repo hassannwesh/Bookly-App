@@ -1,3 +1,5 @@
 learn_new_thinges
 
-1.getIt pachage
+1. getIt package: لإدارة الاعتمادات (dependencies) وعمل injection للكائنات بسهولة في التطبيق.
+2. Equatable package: لتسهيل مقارنة الكائنات (objects) في الموديلات وجعلها قابلة للمقارنة بشكل فعال.
+3. cached_network_image package: لتحميل الصور من الإنترنت مع دعم التخزين المؤقت (caching) لتسريع عرض الصور وتقليل استهلاك البيانات. 
