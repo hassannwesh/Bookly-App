@@ -17,7 +17,7 @@ class HomeRepoImpl extends HomeRepo {
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        books.add(BookModel.fromMap(item));
       }
       return Right(books);
     } catch (e) {
@@ -36,7 +36,7 @@ class HomeRepoImpl extends HomeRepo {
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        books.add(BookModel.fromMap(item));
       }
       return Right(books);
     } catch (e) {
