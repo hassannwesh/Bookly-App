@@ -3,9 +3,9 @@ import 'package:bookly_app/feature/home/presentation/views/widgets/feature_book_
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
-import 'best_seller_list_view_item.dart';
+import 'newset_books_list_view_item.dart';
 import 'custom_home_view_appbar.dart';
-import 'feature_list_view_best_seller.dart';
+import 'feature_list_view_newset_books.dart';
 import 'custom_image_book.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -14,6 +14,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: const Column(
@@ -28,7 +29,7 @@ class HomeViewBody extends StatelessWidget {
               SizedBox(height: 50),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
-                child: Text('Bast Seller', style: Styles.testStyle18),
+                child: Text('Newset Books', style: Styles.testStyle18),
               ),
               SizedBox(height: 20),
             ],
@@ -38,7 +39,7 @@ class HomeViewBody extends StatelessWidget {
         SliverFillRemaining(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
-            child: FeatureListViewBestSeller(),
+            child: FeatureListViewNewsetBooks(),
           ),
         ),
       ],

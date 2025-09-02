@@ -4,7 +4,6 @@ import 'package:bookly_app/feature/home/presentation/views/widgets/custom_book_d
 import 'package:bookly_app/feature/home/presentation/views/widgets/similar_book_list_view.dart';
 import 'package:bookly_app/feature/home/presentation/views/widgets/similar_books_detalis.dart';
 import 'package:flutter/cupertino.dart';
-
 import 'book_action.dart';
 import 'books_details_section.dart';
 import 'custom_image_book.dart';

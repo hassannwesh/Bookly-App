@@ -13,7 +13,7 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failures, List<BookModel>>> fetchFlutterNewsetBooks() async {
     try {
       var data = await apiService.get(
-        endPoint: '/volumes?Filtering=free-ebooks&Sorting=newest&q=subject:sports',
+        endPoint: '/volumes?Filtering=free-ebooks&Sorting=newest&q=subject:health',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
