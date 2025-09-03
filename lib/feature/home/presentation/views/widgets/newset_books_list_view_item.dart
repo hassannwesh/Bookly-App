@@ -23,7 +23,7 @@ class CustomBookListViewItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomImageBook(
-              imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+              imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail??'',
             ),
             const SizedBox(width: 30),
             Expanded(

@@ -6,4 +6,5 @@ abstract class HomeRepo {
   // either is used to handel errors form adrtz package
   Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks();
   Future<Either<Failures, List<BookModel>>> fetchFlutterNewsetBooks();
+  Future<Either<Failures, List<BookModel>>> fetchSimilarBooks({required String category });
 }

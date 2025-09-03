@@ -13,7 +13,8 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failures, List<BookModel>>> fetchFlutterNewsetBooks() async {
     try {
       var data = await apiService.get(
-        endPoint: '/volumes?Filtering=free-ebooks&Sorting=newest&q=subject:health',
+        endPoint:
+            '/volumes?Filtering=free-ebooks&Sorting=newest&q=subject:health',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -29,14 +30,19 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks()async {
-   try {
+  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks() async {
+    try {
       var data = await apiService.get(
-        endPoint: '/volumes?Filtering=free-ebooks&q=subject:sports',
+        endPoint: '/volumes?Filtering=free-ebooks&q=subject:computer',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromMap(item));
+        try {
+          books.add(BookModel.fromMap(item));
+        } catch (e) {
+          // Handle or log the error for this specific item
+          print('Error parsing book item: $e');
+        }
       }
       return Right(books);
     } catch (e) {
@@ -44,6 +50,33 @@ class HomeRepoImpl extends HomeRepo {
         return Left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
-    };
+    }
+  
+  }
+
+
+  @override
+  Future<Either<Failures, List<BookModel>>> fetchSimilarBooks({required String category }) async {
+    try {
+      var data = await apiService.get(
+        endPoint: '/volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:computer',
+      );
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        try {
+          books.add(BookModel.fromMap(item));
+        } catch (e) {
+          // Handle or log the error for this specific item
+          print('Error parsing book item: $e');
+        }
+      }
+      return Right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+    ;
   }
 }
