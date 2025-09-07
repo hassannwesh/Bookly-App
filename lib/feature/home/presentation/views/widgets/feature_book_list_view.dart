@@ -14,6 +14,7 @@ class FeatureBookListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedBooksCubit, FeaturedBooksCubitState>(
       builder: (context, state) {
+        
         if (state is FeaturedBooksCubitSeccess) {
           return SizedBox(
             height: MediaQuery.of(context).size.height * .3,
@@ -22,6 +23,7 @@ class FeatureBookListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               physics: BouncingScrollPhysics(),
               itemBuilder: (context, index) {
+                 print(state.books[index].volumeInfo.imageLinks?.thumbnail);
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: GestureDetector(
