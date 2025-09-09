@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/errors/failures.dart';
 import 'package:bookly_app/core/utils/api_service.dart';
-import 'package:bookly_app/feature/home/data/models/book_model/book_model.dart';
-import 'package:bookly_app/feature/home/data/models/repos/home_repo.dart';
+import 'package:bookly_app/core/utils/models/book_model/book_model.dart';
+import 'package:bookly_app/core/utils/models/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -51,15 +51,16 @@ class HomeRepoImpl extends HomeRepo {
       }
       return left(ServerFailure(e.toString()));
     }
-  
   }
 
-
   @override
-  Future<Either<Failures, List<BookModel>>> fetchSimilarBooks({required String category }) async {
+  Future<Either<Failures, List<BookModel>>> fetchSimilarBooks({
+    required String category,
+  }) async {
     try {
       var data = await apiService.get(
-        endPoint: '/volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:computer',
+        endPoint:
+            '/volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:computer',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -78,5 +79,37 @@ class HomeRepoImpl extends HomeRepo {
       return left(ServerFailure(e.toString()));
     }
     ;
+  }
+
+  @override
+  Future<Either<Failures, List<BookModel>>> searchBooks({
+    required String query,
+  }) async {
+    try {
+      var data = await apiService.get(
+        endPoint:
+            'volumes?filter=free-ebooks&orderBy=relevance&q=${Uri.encodeComponent(query)}',
+      );
+
+      if (data['items'] == null) {
+        return Right([]); // مفيش نتائج
+      }
+
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        try {
+          books.add(BookModel.fromMap(item));
+        } catch (e) {
+          print('Error parsing book item: $e');
+        }
+      }
+
+      return Right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
 }

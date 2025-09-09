@@ -1,5 +1,5 @@
 
-import 'package:bookly_app/feature/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/utils/models/book_model/book_model.dart';
 import 'package:equatable/equatable.dart';
 sealed class FeaturedBooksState extends Equatable {
   const FeaturedBooksState();
